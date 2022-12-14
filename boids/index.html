@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Boids Flocking</title>
+    <link rel="icon" type="image/png" href="../icon.png?v=1" />
+    <link rel="shortcut icon" type="image/png" href="../icon.png?v=1" />
+    <link rel="stylesheet" href="../common.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="sidebar">
+    <main class="layout">
+      <aside class="panel">
+        <a class="app__back" href="../index.html">&lt; Back</a>
+        <div class="panel__head">
+          <h1 class="app__title">Boids Flocking</h1>
+          <p class="app__subtitle">
+            Emergent flocking from separation, alignment &amp; cohesion.
+          </p>
+        </div>
+
+        <div class="stack">
+          <div class="control control--stacked">
+            <label class="control__label" for="cnt"
+              >Boids <span class="control__value" id="cnt-out">150</span></label
+            >
+            <input
+              class="control__slider"
+              type="range"
+              id="cnt"
+              min="20"
+              max="400"
+              value="150"
+              step="1"
+            />
+          </div>
+          <div class="control control--stacked">
+            <label class="control__label" for="sep"
+              >Separation
+              <span class="control__value" id="sep-out">1.5</span></label
+            >
+            <input
+              class="control__slider"
+              type="range"
+              id="sep"
+              min="0"
+              max="3"
+              value="1.5"
+              step="0.1"
+            />
+          </div>
+          <div class="control control--stacked">
+            <label class="control__label" for="ali"
+              >Alignment
+              <span class="control__value" id="ali-out">1.0</span></label
+            >
+            <input
+              class="control__slider"
+              type="range"
+              id="ali"
+              min="0"
+              max="3"
+              value="1.0"
+              step="0.1"
+            />
+          </div>
+          <div class="control control--stacked">
+            <label class="control__label" for="coh"
+              >Cohesion
+              <span class="control__value" id="coh-out">1.0</span></label
+            >
+            <input
+              class="control__slider"
+              type="range"
+              id="coh"
+              min="0"
+              max="3"
+              value="1.0"
+              step="0.1"
+            />
+          </div>
+          <div class="control control--stacked">
+            <label class="control__label" for="spd"
+              >Speed <span class="control__value" id="spd-out">140</span></label
+            >
+            <input
+              class="control__slider"
+              type="range"
+              id="spd"
+              min="40"
+              max="240"
+              value="140"
+              step="5"
+            />
+          </div>
+          <div class="control control--stacked">
+            <label class="control__label" for="preset">Preset</label>
+            <select id="preset" class="control__select">
+              <option value="school">School</option>
+              <option value="swarm">Swarm</option>
+              <option value="scatter">Scatter</option>
+              <option value="vortex">Vortex</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="stack stack--row">
+          <label class="toggle"
+            ><input type="checkbox" id="wrap" checked /><span
+              >Wrap edges</span
+            ></label
+          >
+          <label class="toggle"
+            ><input type="checkbox" id="flee" checked /><span
+              >Flee cursor</span
+            ></label
+          >
+          <label class="toggle"
+            ><input type="checkbox" id="trails" checked /><span
+              >Trails</span
+            ></label
+          >
+          <button id="pause" class="btn btn--ghost" type="button">Pause</button>
+          <button id="reset" class="btn btn--ghost" type="button">Reset</button>
+        </div>
+
+        <input type="checkbox" id="show-info" class="info-check" checked />
+        <label class="info-toggle" for="show-info">
+          <span class="info-toggle__switch"></span>
+          <span>Live data</span>
+        </label>
+        <div class="telemetry">
+          <div class="readout">
+            <span class="readout__label">Boids</span>
+            <span class="readout__value" id="tel-count">0</span>
+          </div>
+          <div class="readout">
+            <span class="readout__label">Alignment order Φ</span>
+            <span class="readout__value" id="tel-order">0.00</span>
+          </div>
+          <div class="readout">
+            <span class="readout__label">Mean speed</span>
+            <span class="readout__value" id="tel-speed">0 px/s</span>
+          </div>
+          <div class="readout">
+            <span class="readout__label">Rotation (swirl)</span>
+            <span class="readout__value" id="tel-swirl">+0.00</span>
+          </div>
+        </div>
+
+        <p class="controls__hint">
+          Click canvas to add a scatter burst &middot; Move the cursor to
+          scatter the flock
+        </p>
+      </aside>
+
+      <section class="viewport">
+        <div class="stage">
+          <canvas id="c" class="stage__canvas"></canvas>
+          <div class="stage__hud">
+            <span id="fps" class="hud__stat">-- fps</span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
