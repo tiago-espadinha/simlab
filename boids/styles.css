@@ -1,0 +1,12 @@
+/* Boids — teal/violet flock accents. */
+:root {
+  --accent: #B3FF8A;
+  --accent-2: #E5FF52;
+}
+
+.app__title {
+  color: var(--accent);
+}
+
+.stage__canvas { cursor: crosshair; }
+
