@@ -1,0 +1,18 @@
+/* Particle Gravity — deep-space teal/violet accents. */
+:root {
+  --accent: #752DF7;
+  --accent-2: #8a84ff;
+}
+
+.app__title {
+  color: var(--accent);
+}
+
+.stage {
+  box-shadow: 0 20px 60px -20px rgba(110, 231, 208, 0.25);
+}
+
+.stage__canvas {
+  background: radial-gradient(circle at 50% 40%, #0d0d1c 0%, #060610 70%);
+  cursor: cell;
+}
