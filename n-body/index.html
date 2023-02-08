@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>N-Body / Solar System</title>
+  <link rel="icon" type="image/png" href="../icon.png?v=1" />
+  <link rel="shortcut icon" type="image/png" href="../icon.png?v=1" />
+  <link rel="stylesheet" href="../common.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="sidebar">
+  <main class="layout">
+    <aside class="panel">
+      <a class="app__back" href="../index.html">&lt; Back</a>
+      <div class="panel__head">
+        <h1 class="app__title">N-Body / Solar System</h1>
+        <p class="app__subtitle">Bodies attract each other with Newtonian gravity.</p>
+      </div>
+
+      <div class="stack">
+        <div class="control control--stacked">
+          <label class="control__label" for="speed">Sim speed <span class="control__value" id="speed-out">1.0</span></label>
+          <input class="control__slider" type="range" id="speed" min="0.1" max="5" value="1" step="0.1">
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="scene">Scene</label>
+          <select id="scene" class="control__select">
+            <option value="solar">Solar system</option>
+            <option value="binary">Binary + planets</option>
+            <option value="cluster">Random cluster</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="stack stack--row">
+        <label class="toggle"><input type="checkbox" id="trails" checked><span>Trails</span></label>
+        <button id="pause" class="btn" type="button">Pause</button>
+        <button id="reset" class="btn btn--ghost" type="button">Reset scene</button>
+      </div>
+
+      <input type="checkbox" id="show-info" class="info-check" checked>
+      <label class="info-toggle" for="show-info">
+        <span class="info-toggle__switch"></span>
+        <span>Live data</span>
+      </label>
+      <div class="telemetry">
+        <div class="readout">
+          <span class="readout__label">Bodies</span>
+          <span class="readout__value" id="tel-count">0</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Kinetic energy</span>
+          <span class="readout__value" id="tel-ke">0</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Potential energy</span>
+          <span class="readout__value" id="tel-pe">0</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Energy drift</span>
+          <span class="readout__value" id="tel-drift">+0.00%</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Momentum |p|</span>
+          <span class="readout__value" id="tel-mom">0</span>
+        </div>
+      </div>
+
+      <p class="controls__hint">Drag from a point and release to fling a new body in that direction.</p>
+    </aside>
+
+    <section class="viewport">
+      <div class="stage">
+        <canvas id="c" class="stage__canvas"></canvas>
+         <div class="stage__hud">
+          <span id="fps" class="hud__stat">-- fps</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
