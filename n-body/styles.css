@@ -1,0 +1,20 @@
+/* N-Body — warm stellar gold/orange accents. */
+:root {
+  --accent: #ffd06d;
+  --accent-2: #ff9b61;
+}
+
+.app__title {
+  color: var(--accent);
+}
+
+.stage {
+  box-shadow: 0 20px 60px -20px rgba(255, 207, 110, 0.22);
+  height: calc(100vh - 40px);
+}
+
+.stage__canvas {
+  background: radial-gradient(circle at 50% 50%, #100c06 0%, #060505 75%);
+  cursor: grab;
+}
+.stage__canvas:active { cursor: grabbing; }
