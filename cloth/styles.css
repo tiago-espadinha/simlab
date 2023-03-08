@@ -1,0 +1,19 @@
+/* Cloth — soft pink/violet fabric accents. */
+:root {
+  --accent: #f4a4cf;
+  --accent-2: #b59cff;
+}
+
+.app__title {
+  color: var(--accent);
+}
+
+.stage {
+  box-shadow: 0 20px 60px -20px rgba(255, 143, 208, 0.2);
+}
+
+.stage__canvas {
+  background: linear-gradient(180deg, #0c0a14 0%, #08070f 100%);
+  cursor: grab;
+}
+.stage__canvas:active { cursor: grabbing; }
