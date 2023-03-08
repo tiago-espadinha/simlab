@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spring-Mass Cloth</title>
+    <link rel="icon" type="image/png" href="../icon.png?v=1" />
+    <link rel="shortcut icon" type="image/png" href="../icon.png?v=1" />
+    <link rel="stylesheet" href="../common.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="sidebar">
+    <main class="layout">
+      <aside class="panel">
+        <a class="app__back" href="../index.html">&lt; Back</a>
+        <div class="panel__head">
+          <h1 class="app__title">Spring-Mass Cloth</h1>
+          <p class="app__subtitle">
+            Verlet-integrated cloth with distance constraints.
+          </p>
+        </div>
+
+        <div class="stack">
+          <div class="control control--stacked">
+            <label class="control__label" for="cols"
+              >Columns
+              <span class="control__value" id="cols-out">30</span></label
+            >
+            <input
+              class="control__slider"
+              type="range"
+              id="cols"
+              min="10"
+              max="50"
+              value="30"
+              step="1"
+            />
+          </div>
+          <div class="control control--stacked">
+            <label class="control__label" for="gravity">Gravity</label>
+            <input
+              class="control__slider"
+              type="range"
+              id="gravity"
+              min="0"
+              max="2000"
+              value="800"
+              step="50"
+            />
+          </div>
+          <div class="control control--stacked">
+            <label class="control__label" for="stiff">Stiffness</label>
+            <input
+              class="control__slider"
+              type="range"
+              id="stiff"
+              min="1"
+              max="8"
+              value="4"
+              step="1"
+            />
+          </div>
+          <div class="control control--stacked">
+            <label class="control__label" for="wind">Wind</label>
+            <input
+              class="control__slider"
+              type="range"
+              id="wind"
+              min="0"
+              max="600"
+              value="0"
+              step="20"
+            />
+          </div>
+        </div>
+
+        <div class="stack stack--row">
+          <label class="toggle"
+            ><input type="checkbox" id="showpoints" checked="true"/><span
+              >Show points</span
+            ></label
+          >
+          <button id="reset" class="btn btn--ghost" type="button">
+            Reset cloth
+          </button>
+        </div>
+
+        <input type="checkbox" id="show-info" class="info-check" checked />
+        <label class="info-toggle" for="show-info">
+          <span class="info-toggle__switch"></span>
+          <span>Live data</span>
+        </label>
+        <div class="telemetry">
+          <div class="readout">
+            <span class="readout__label">Strain energy</span>
+            <span class="readout__value" id="tel-strain">0.0</span>
+          </div>
+          <div class="readout">
+            <span class="readout__label">Max stretch</span>
+            <span class="readout__value" id="tel-stretch">0%</span>
+          </div>
+          <div class="readout">
+            <span class="readout__label">Torn links</span>
+            <span class="readout__value" id="tel-torn">0 / 0</span>
+          </div>
+          <div class="readout">
+            <span class="readout__label">Avg motion</span>
+            <span class="readout__value" id="tel-vel">0.0 px/f</span>
+          </div>
+        </div>
+
+        <p class="controls__hint">
+          Drag to grab and move the cloth &middot; Right-click drag to tear it
+          apart
+        </p>
+      </aside>
+
+      <section class="viewport">
+        <div class="stage">
+          <canvas id="c" class="stage__canvas"></canvas>
+          <div class="stage__hud">
+            <span id="fps" class="hud__stat">-- fps</span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
