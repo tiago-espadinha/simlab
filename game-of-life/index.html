@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conway's Game of Life</title>
+  <link rel="icon" type="image/png" href="../icon.png?v=1" />
+  <link rel="shortcut icon" type="image/png" href="../icon.png?v=1" />
+  <link rel="stylesheet" href="../common.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="sidebar">
+  <main class="layout">
+    <aside class="panel">
+      <a class="app__back" href="../index.html">&lt; Back</a>
+      <div class="panel__head">
+        <h1 class="app__title">Game of Life</h1>
+        <p class="app__subtitle">Conway's cellular automaton: birth on 3, survive on 2&ndash;3.</p>
+      </div>
+
+      <div class="stack">
+        <div class="control control--stacked">
+          <label class="control__label" for="cell">Cell size <span class="control__value" id="cell-out">9</span></label>
+          <input class="control__slider" type="range" id="cell" min="4" max="20" value="9" step="1">
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="speed">Speed <span class="control__value" id="speed-out">12</span></label>
+          <input class="control__slider" type="range" id="speed" min="1" max="30" value="12" step="1">
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="pattern">Pattern</label>
+          <select id="pattern" class="control__select">
+            <option value="random">Random soup</option>
+            <option value="glidergun">Glider gun</option>
+            <option value="pulsar">Pulsar</option>
+            <option value="empty">Empty</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="stack stack--row">
+        <button id="play" class="btn" type="button">Pause</button>
+        <button id="stepBtn" class="btn btn--ghost" type="button">Step</button>
+        <button id="clear" class="btn btn--ghost" type="button">Clear</button>
+        <button id="randomize" class="btn btn--ghost" type="button">Randomize</button>
+      </div>
+
+      <input type="checkbox" id="show-info" class="info-check" checked>
+      <label class="info-toggle" for="show-info">
+        <span class="info-toggle__switch"></span>
+        <span>Live data</span>
+      </label>
+      <div class="telemetry">
+        <div class="readout">
+          <span class="readout__label">Population</span>
+          <span class="readout__value" id="tel-pop">0</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Density</span>
+          <span class="readout__value" id="tel-density">0%</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Births / gen</span>
+          <span class="readout__value" id="tel-births">0</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Deaths / gen</span>
+          <span class="readout__value" id="tel-deaths">0</span>
+        </div>
+      </div>
+
+      <p class="controls__hint">Click or drag on the grid to toggle cells.</p>
+    </aside>
+
+    <section class="viewport">
+      <div class="stage">
+        <canvas id="c" class="stage__canvas"></canvas>
+        <div class="stage__hud">
+          <span id="gen" class="hud__stat">gen 0</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

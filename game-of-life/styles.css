@@ -1,0 +1,18 @@
+/* Game of Life — phosphor green accents. */
+:root {
+  --accent: #83ef8c;
+  --accent-2: #45b98a;
+}
+
+.app__title {
+  color: var(--accent);
+}
+
+.stage {
+  box-shadow: 0 20px 60px -20px rgba(126, 240, 138, 0.2);
+}
+
+.stage__canvas {
+  background: #080a08;
+  cursor: pointer;
+}
