@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reaction-Diffusion (Gray-Scott)</title>
+  <link rel="icon" type="image/png" href="../icon.png?v=1" />
+  <link rel="shortcut icon" type="image/png" href="../icon.png?v=1" />
+  <link rel="stylesheet" href="../common.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="sidebar">
+  <main class="layout">
+    <aside class="panel">
+      <a class="app__back" href="../index.html">&lt; Back</a>
+      <div class="panel__head">
+        <h1 class="app__title">Reaction-Diffusion</h1>
+        <p class="app__subtitle">The Gray-Scott model: two chemicals diffuse and react.</p>
+      </div>
+
+      <div class="stack">
+        <div class="control control--stacked">
+          <label class="control__label" for="feed">Feed <span class="control__value" id="feed-out">0.037</span></label>
+          <input class="control__slider" type="range" id="feed" min="0.01" max="0.09" value="0.037" step="0.001">
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="kill">Kill <span class="control__value" id="kill-out">0.060</span></label>
+          <input class="control__slider" type="range" id="kill" min="0.045" max="0.07" value="0.06" step="0.001">
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="preset">Preset</label>
+          <select id="preset" class="control__select">
+            <option value="coral">Coral</option>
+            <option value="mitosis">Mitosis</option>
+            <option value="worms">Worms</option>
+            <option value="spots">Spots</option>
+          </select>
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="palette">Palette</label>
+          <select id="palette" class="control__select">
+            <option value="teal">Teal</option>
+            <option value="fire">Fire</option>
+            <option value="mono">Mono</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="stack stack--row">
+        <button id="seed" class="btn" type="button">Reseed</button>
+        <button id="clear" class="btn btn--ghost" type="button">Clear</button>
+      </div>
+
+      <input type="checkbox" id="show-info" class="info-check" checked>
+      <label class="info-toggle" for="show-info">
+        <span class="info-toggle__switch"></span>
+        <span>Live data</span>
+      </label>
+      <div class="telemetry">
+        <div class="readout">
+          <span class="readout__label">Mean V</span>
+          <span class="readout__value" id="tel-meanv">0.000</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Active area</span>
+          <span class="readout__value" id="tel-active">0%</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Mean U+V</span>
+          <span class="readout__value" id="tel-mass">0.000</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Feed / Kill</span>
+          <span class="readout__value" id="tel-fk">0.000 / 0.000</span>
+        </div>
+      </div>
+
+      <p class="controls__hint">Click and drag on the canvas to inject chemical B.</p>
+    </aside>
+
+    <section class="viewport">
+      <div class="stage">
+        <canvas id="c" class="stage__canvas"></canvas>
+        <div class="stage__hud">
+          <span id="fps" class="hud__stat">-- fps</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
