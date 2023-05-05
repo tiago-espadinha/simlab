@@ -1,0 +1,18 @@
+/* Reaction-Diffusion — organic teal/aqua accents. */
+:root {
+  --accent: #70c8ff;
+  --accent-2: #4fc7b9;
+}
+
+.app__title {
+  color: var(--accent);
+}
+
+.stage {
+  box-shadow: 0 20px 60px -20px rgba(79, 208, 192, 0.22);
+}
+
+.stage__canvas {
+  background: #06100f;
+  cursor: crosshair;
+}
