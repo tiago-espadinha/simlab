@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Falling Sand</title>
+  <link rel="icon" type="image/png" href="../icon.png?v=1" />
+  <link rel="shortcut icon" type="image/png" href="../icon.png?v=1" />
+  <link rel="stylesheet" href="../common.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="sidebar">
+  <main class="layout">
+    <aside class="panel">
+      <a class="app__back" href="../index.html">&lt; Back</a>
+      <div class="panel__head">
+        <h1 class="app__title">Falling Sand</h1>
+        <p class="app__subtitle">A cellular sandbox of sand, water, and walls.</p>
+      </div>
+
+      <div class="stack">
+        <div class="control control--stacked">
+          <label class="control__label" for="material">Material</label>
+          <select id="material" class="control__select">
+            <option value="1">Sand</option>
+            <option value="2">Water</option>
+            <option value="3">Wall</option>
+            <option value="4">Plant seed</option>
+            <option value="0">Eraser</option>
+          </select>
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="brush">Brush <span class="control__value" id="brush-out">5</span></label>
+          <input class="control__slider" type="range" id="brush" min="1" max="14" value="5" step="1">
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="cell">Cell size <span class="control__value" id="cell-out">4</span></label>
+          <input class="control__slider" type="range" id="cell" min="2" max="8" value="4" step="1">
+        </div>
+      </div>
+
+      <div class="stack stack--row">
+        <button id="clear" class="btn btn--ghost" type="button">Clear</button>
+      </div>
+
+      <input type="checkbox" id="show-info" class="info-check" checked>
+      <label class="info-toggle" for="show-info">
+        <span class="info-toggle__switch"></span>
+        <span>Live data</span>
+      </label>
+      <div class="telemetry">
+        <div class="readout">
+          <span class="readout__label">Filled</span>
+          <span class="readout__value" id="tel-filled">0%</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Sand</span>
+          <span class="readout__value" id="tel-sand">0</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Water</span>
+          <span class="readout__value" id="tel-water">0</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Plant</span>
+          <span class="readout__value" id="tel-plant">0</span>
+        </div>
+      </div>
+
+      <p class="controls__hint">Click and drag to paint. Sand piles, water flows, plants grow into water.</p>
+    </aside>
+
+    <section class="viewport">
+      <div class="stage">
+        <canvas id="c" class="stage__canvas"></canvas>
+        <div class="stage__hud">
+          <span id="fps" class="hud__stat">-- fps</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

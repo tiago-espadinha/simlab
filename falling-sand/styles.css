@@ -1,0 +1,19 @@
+/* Falling Sand — warm sand/amber accents. */
+:root {
+  --accent: #f0c46d;
+  --accent-2: #c97b3b;
+}
+
+.app__title {
+  color: var(--accent);
+}
+
+.stage {
+  box-shadow: 0 20px 60px -20px rgba(230, 199, 106, 0.22);
+}
+
+.stage__canvas {
+  background: #0a0a08;
+  cursor: cell;
+  image-rendering: pixelated;
+}
