@@ -1,0 +1,18 @@
+/* Ripple — cool water blue accents. */
+:root {
+  --accent: #72b2ff;
+  --accent-2: #53ccd8;
+}
+
+.app__title {
+  color: var(--accent);
+}
+
+.stage {
+  box-shadow: 0 20px 60px -20px rgba(110, 168, 255, 0.22);
+}
+
+.stage__canvas {
+  background: #060a12;
+  cursor: crosshair;
+}
