@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2D Ripple</title>
+  <link rel="icon" type="image/png" href="../icon.png?v=1" />
+  <link rel="shortcut icon" type="image/png" href="../icon.png?v=1" />
+  <link rel="stylesheet" href="../common.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="sidebar">
+  <main class="layout">
+    <aside class="panel">
+      <a class="app__back" href="../index.html">&lt; Back</a>
+      <div class="panel__head">
+        <h1 class="app__title">2D Ripple</h1>
+        <p class="app__subtitle">A double-buffered height field propagating waves.</p>
+      </div>
+
+      <div class="stack">
+        <div class="control control--stacked">
+          <label class="control__label" for="damp">Damping <span class="control__value" id="damp-out">0.985</span></label>
+          <input class="control__slider" type="range" id="damp" min="0.9" max="0.999" value="0.985" step="0.001">
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="strength">Strength</label>
+          <input class="control__slider" type="range" id="strength" min="100" max="1500" value="600" step="50">
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="palette">Palette</label>
+          <select id="palette" class="control__select">
+            <option value="ocean">Ocean</option>
+            <option value="ink">Ink</option>
+            <option value="neon">Neon</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="stack stack--row">
+        <label class="toggle"><input type="checkbox" id="rain"><span>Rain</span></label>
+        <button id="clear" class="btn btn--ghost" type="button">Calm water</button>
+      </div>
+
+      <input type="checkbox" id="show-info" class="info-check" checked>
+      <label class="info-toggle" for="show-info">
+        <span class="info-toggle__switch"></span>
+        <span>Live data</span>
+      </label>
+      <div class="telemetry">
+        <div class="readout">
+          <span class="readout__label">Peak amplitude</span>
+          <span class="readout__value" id="tel-peak">0.0</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Wave energy</span>
+          <span class="readout__value" id="tel-energy">0.0</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Active surface</span>
+          <span class="readout__value" id="tel-active">0%</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Damping</span>
+          <span class="readout__value" id="tel-damp">0.985</span>
+        </div>
+      </div>
+
+      <p class="controls__hint">Click or drag to drop ripples onto the surface.</p>
+    </aside>
+
+    <section class="viewport">
+      <div class="stage">
+        <canvas id="c" class="stage__canvas"></canvas>
+        <div class="stage__hud">
+          <span id="fps" class="hud__stat">-- fps</span>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
