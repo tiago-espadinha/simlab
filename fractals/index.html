@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fractals</title>
+    <link rel="icon" type="image/png" href="../icon.png?v=1" />
+    <link rel="shortcut icon" type="image/png" href="../icon.png?v=1" />
+    <link rel="stylesheet" href="../common.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="sidebar">
+    <main class="layout">
+      <aside class="panel">
+        <a class="app__back" href="../index.html">&lt; Back</a>
+        <div class="panel__head">
+          <h1 class="app__title">Fractals</h1>
+          <p class="app__subtitle">
+            Escape-time rendering of the Mandelbrot and Julia sets.
+          </p>
+        </div>
+
+        <div class="stack">
+          <div class="control control--stacked">
+            <label class="control__label" for="set">Set</label>
+            <select id="set" class="control__select">
+              <option value="mandelbrot">Mandelbrot</option>
+              <option value="julia">Julia</option>
+            </select>
+          </div>
+          <div class="control control--stacked">
+            <label class="control__label" for="iter"
+              >Iterations
+              <span class="control__value" id="iter-out">200</span></label
+            >
+            <input
+              class="control__slider"
+              type="range"
+              id="iter"
+              min="50"
+              max="800"
+              value="200"
+              step="10"
+            />
+          </div>
+          <div class="control control--stacked">
+            <label class="control__label" for="palette">Palette</label>
+            <select id="palette" class="control__select">
+              <option value="fire">Fire</option>
+              <option value="ocean">Ocean</option>
+              <option value="psy">Psychedelic</option>
+              <option value="mono">Mono</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="stack" id="julia-row">
+          <div class="control control--stacked">
+            <label class="control__label" for="cre">Julia Re</label>
+            <input
+              class="control__slider"
+              type="range"
+              id="cre"
+              min="-1"
+              max="1"
+              value="-0.8"
+              step="0.001"
+            />
+          </div>
+          <div class="control control--stacked">
+            <label class="control__label" for="cim">Julia Im</label>
+            <input
+              class="control__slider"
+              type="range"
+              id="cim"
+              min="-1"
+              max="1"
+              value="0.156"
+              step="0.001"
+            />
+          </div>
+        </div>
+
+        <div class="stack stack--row">
+          <button id="reset" class="btn btn--ghost" type="button">
+            Reset view
+          </button>
+        </div>
+
+        <input type="checkbox" id="show-info" class="info-check" checked />
+        <label class="info-toggle" for="show-info">
+          <span class="info-toggle__switch"></span>
+          <span>Live data</span>
+        </label>
+        <div class="telemetry">
+          <div class="readout">
+            <span class="readout__label">Center</span>
+            <span class="readout__value" id="tel-center">0, 0</span>
+          </div>
+          <div class="readout">
+            <span class="readout__label">Pixel scale</span>
+            <span class="readout__value" id="tel-scale">0</span>
+          </div>
+          <div class="readout">
+            <span class="readout__label">In-set area</span>
+            <span class="readout__value" id="tel-inset">0%</span>
+          </div>
+          <div class="readout">
+            <span class="readout__label">Mean iterations</span>
+            <span class="readout__value" id="tel-meaniter">0</span>
+          </div>
+        </div>
+        
+        <p class="controls__hint">
+          Scroll to zoom &middot; Drag to pan &middot; Double-click to zoom in
+          on a point.
+        </p>
+      </aside>
+      
+      <section class="viewport">
+        <div class="stage">
+          <canvas id="c" class="stage__canvas"></canvas>
+          <div class="stage__hud">
+            <span id="zoom" class="hud__stat">1&times;</span>
+            <span id="ms" class="hud__stat">-- ms</span>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
