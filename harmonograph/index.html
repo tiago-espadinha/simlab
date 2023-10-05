@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lissajous / Harmonograph</title>
+  <link rel="icon" type="image/png" href="../icon.png?v=1" />
+  <link rel="shortcut icon" type="image/png" href="../icon.png?v=1" />
+  <link rel="stylesheet" href="../common.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="sidebar">
+  <main class="layout">
+    <aside class="panel">
+      <a class="app__back" href="../index.html">&lt; Back</a>
+      <div class="panel__head">
+        <h1 class="app__title">Harmonograph</h1>
+        <p class="app__subtitle">Curves traced by damped, superimposed sine waves.</p>
+      </div>
+
+      <div class="stack">
+        <div class="control control--stacked">
+          <label class="control__label" for="fx">Freq X <span class="control__value" id="fx-out">3.00</span></label>
+          <input class="control__slider" type="range" id="fx" min="1" max="8" value="3" step="0.01">
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="fy">Freq Y <span class="control__value" id="fy-out">2.00</span></label>
+          <input class="control__slider" type="range" id="fy" min="1" max="8" value="2" step="0.01">
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="phase">Phase</label>
+          <input class="control__slider" type="range" id="phase" min="0" max="6.28" value="1.57" step="0.01">
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="damp">Damping</label>
+          <input class="control__slider" type="range" id="damp" min="0" max="0.02" value="0.004" step="0.0005">
+        </div>
+        <div class="control control--stacked">
+          <label class="control__label" for="mode">Mode</label>
+          <select id="mode" class="control__select">
+            <option value="harmonograph">Harmonograph (4 pendulums)</option>
+            <option value="lissajous">Pure Lissajous</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="stack stack--row">
+        <label class="toggle"><input type="checkbox" id="rainbow" checked><span>Rainbow</span></label>
+        <button id="draw" class="btn" type="button">Redraw</button>
+        <button id="random" class="btn btn--ghost" type="button">Randomize</button>
+      </div>
+
+      <input type="checkbox" id="show-info" class="info-check" checked>
+      <label class="info-toggle" for="show-info">
+        <span class="info-toggle__switch"></span>
+        <span>Live data</span>
+      </label>
+      <div class="telemetry">
+        <div class="readout">
+          <span class="readout__label">Freq ratio</span>
+          <span class="readout__value" id="tel-ratio">3:2</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Decay envelope</span>
+          <span class="readout__value" id="tel-decay">100%</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Elapsed t</span>
+          <span class="readout__value" id="tel-elapsed">0.0</span>
+        </div>
+        <div class="readout">
+          <span class="readout__label">Curve</span>
+          <span class="readout__value" id="tel-closure">Damped</span>
+        </div>
+      </div>
+
+      <p class="controls__hint">Each redraw traces a fresh figure; small frequency changes transform it completely.</p>
+    </aside>
+
+    <section class="viewport">
+      <div class="stage">
+        <canvas id="c" class="stage__canvas"></canvas>
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>

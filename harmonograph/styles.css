@@ -1,0 +1,18 @@
+/* Harmonograph — luminous violet/rainbow accents. */
+:root {
+  --accent: #ff5252;
+  --accent-2: ##FF8A8A;
+}
+
+.app__title {
+  color: var(--accent);
+}
+
+.stage {
+  box-shadow: 0 20px 60px -20px rgba(183, 139, 255, 0.24);
+}
+
+.stage__canvas {
+  background: #060510;
+  cursor: default;
+}
