@@ -6,6 +6,10 @@ visuals. No build step, no dependencies — just plain HTML, CSS, and JavaScript
 Open [index.html](index.html) for the gallery, or jump straight into any project
 folder below.
 
+## Live Demo
+
+**[Try it online →](https://simlab.vercel.app/)**
+
 ## Running it
 
 - **Easiest:** open [index.html](index.html) directly in a browser.
@@ -32,7 +36,15 @@ folder below.
 | Fractals | [fractals/](fractals/) | Escape-time Mandelbrot / Julia sets |
 | Harmonograph | [harmonograph/](harmonograph/) | Damped superimposed sinusoids |
 
-Each folder has its own `index.html`, `main.js`, and `README.md`. All ten share
+## Gallery
+||![Gallery overview](demo_images/main_page.png)||
+|---|---|---|
+| ![Spring-Mass Cloth](demo_images/spring-mass_cloth.png) | ![2D Ripple](demo_images/2D-ripples.png) | ![Fractals](demo_images/fractals.png) |
+| ![Double Pendulum](demo_images/double_pendulum.png) | ![Harmonograph](demo_images/harmonograph.png) | ![Falling Sand](demo_images/falling_sand.png) |
+| ![Reaction-Diffusion](demo_images/reaction-diffusion.png) | ![N-Body](demo_images/n-body_orbitals.png) | ![Game of Life](demo_images/game_of_life.png) |
+| ![Boids](demo_images/boids.png) | ![Particle Gravity](demo_images/particle_gravity.png) | |
+
+Each folder has its own `index.html`, `main.js`, and `README.md`. All eleven share
 a single stylesheet, [common.css](common.css).
 
 ## Shared conventions
