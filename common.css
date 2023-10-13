@@ -6,7 +6,7 @@
   --text: #e8e8f0;
   --text-secondary: #a0a0b8;
   --text-tertiary: #6a6a82;
-  --accent: #6ee7d0;
+  --accent: #3584e4;
   --accent-2: #8b7dff;
   --radius: 14px;
   --radius-sm: 8px;
@@ -39,23 +39,14 @@ body {
 }
 
 .app__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
   margin-bottom: 18px;
 }
 
-.app__back {
-  display: inline-block;
-  padding: 7px 16px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border);
-  background: var(--panel);
-  color: var(--text-secondary);
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-}
-.app__back:hover {
-  color: var(--accent);
-  background: var(--panel-2);
+.app__header:hover .app__icon {
+  transform: rotate(30deg);
 }
 
 .app__title {
@@ -68,8 +59,45 @@ body {
 
 .app__subtitle {
   margin: 4px 0 0;
-  font-size: 14px;
+  font-size: 16px;
   color: var(--text-secondary);
+}
+
+.app__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2em;
+  padding: 7px 16px 7px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.app__back:hover {
+  color: var(--accent);
+  background: var(--panel-2);
+}
+
+.app__back:hover .app__back-icon {
+  transform: translateX(-2px);
+}
+
+.app__back-icon {
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.app__icon {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.2s ease;
 }
 
 .stage {
@@ -208,7 +236,7 @@ body {
 }
 
 /* ------------------------------------------------------------------ */
-/* Gallery landing page                                                */
+/* Gallery landing page                                               */
 /* ------------------------------------------------------------------ */
 .gallery {
   display: grid;
@@ -251,7 +279,7 @@ body {
 }
 
 /* ------------------------------------------------------------------ */
-/* Sidebar + telemetry layout (shared across simulations)              */
+/* Sidebar + telemetry layout (shared across simulations)             */
 /* ------------------------------------------------------------------ */
 body.sidebar {
   padding: 0;
@@ -440,18 +468,69 @@ body.sidebar {
 
 @media (max-width: 720px) {
   body.sidebar {
+    padding: 0;
     height: auto;
     overflow: visible;
   }
   .layout {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     height: auto;
-    min-height: 100vh;
   }
   .panel {
+    order: -1;
+    min-height: auto;
+    max-height: none;
     overflow-y: visible;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    gap: 16px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: start;
+    padding: 22px;
+  }
+  .panel .app__back {
+    grid-column: 1;
+    grid-row: 1;
+    flex-shrink: 0;
+    margin-right: 12px;
+  }
+  .panel__head {
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0;
+    margin-top: 0 !important;
+  }
+  .panel .app__title {
+    font-size: 24px;
+    margin: 0;
+    text-align: right;
+  }
+  .panel .app__subtitle {
+    text-align: right;
+  }
+  .panel > :not(.app__back):not(.panel__head) {
+    grid-column: 1 / -1;
+    margin-top: 16px;
   }
   .viewport {
-    padding: 14px;
+    flex: 0 0 auto;
+    padding: 0;
+    height: 50vh;
+    max-height: 60vh;
+  }
+  .viewport .stage {
+    height: 100%;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 500px) {
+  .gallery {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   }
 }

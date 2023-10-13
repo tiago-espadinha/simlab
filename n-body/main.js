@@ -196,7 +196,7 @@ function loop(now) {
     const scale = parseFloat(el.speed.value);
     acc += (ms / 100) * scale;
     let n = 0;
-    while (acc >= DT && n < 8) { step(DT); acc -= DT; n++; }
+    while (acc >= DT && n < scale * 8) { step(DT); acc -= DT; n++; }
     if (n === 8) acc = 0;
   }
   draw();
